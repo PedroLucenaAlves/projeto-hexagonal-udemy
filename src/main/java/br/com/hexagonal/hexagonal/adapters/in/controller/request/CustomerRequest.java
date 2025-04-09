@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class CustomerRequest {
 
-    @NotBlank //EVITA ESPAÇOS VAZIOS E BRANCOS
+    @NotBlank
     private String name;
 
     @NotBlank

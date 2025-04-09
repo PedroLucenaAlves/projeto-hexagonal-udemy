@@ -21,7 +21,6 @@ public class CostumerController {
     @Autowired
     private CustomerMapper customerMapper;
 
-    //insercao de cliente
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest){
         var customer = customerMapper.toCustomer(customerRequest);

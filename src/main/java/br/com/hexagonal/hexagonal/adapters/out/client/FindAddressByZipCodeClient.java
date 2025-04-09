@@ -5,17 +5,13 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-/**
- * Classe e um http que chama um serviço externo
- */
-
 @FeignClient(
         name = "FindAddressByZipCodeClient",
-        url = "${arantes.client.address.url}" //url de acesso ao microservice no yml
+        url = "${arantes.client.address.url}"
 )
 public interface FindAddressByZipCodeClient {
 
     @GetMapping("/{zipCode}")
-    AddressResponse find(@PathVariable("zipCode") String zipCode); //pathVariable diz que o parametro sera substituido pela string do getMapping
+    AddressResponse find(@PathVariable("zipCode") String zipCode);
 
 }

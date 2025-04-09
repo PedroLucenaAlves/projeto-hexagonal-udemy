@@ -8,9 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CustomerMapper {
 
-    //passa um CustomerRequest e converte para Customer
-
-    //ignorando campos de customer que não existem em customerRequest:
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "address", ignore = true)
     @Mapping(target = "isValidCpf", ignore = true)

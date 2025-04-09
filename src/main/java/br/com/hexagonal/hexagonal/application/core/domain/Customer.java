@@ -1,9 +1,5 @@
 package br.com.hexagonal.hexagonal.application.core.domain;
 
-/**
- * Tudo que estiver dentro do package core deve estar isolado de qualquer outra tecnologia como frameworks, nao pode ser acessado direto
- */
-
 public class Customer {
 
     private String id;
@@ -16,7 +12,6 @@ public class Customer {
 
     private Boolean isValidCPF;
 
-    //quando criarmos um cliente o cpf so sera validado apos a nossa api de validacao do cpf, retornando o cpf como valido
     public Customer(){
         this.isValidCPF = false;
     }

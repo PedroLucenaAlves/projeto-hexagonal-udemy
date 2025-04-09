@@ -5,18 +5,12 @@ import br.com.hexagonal.hexagonal.application.ports.in.InsertCustomerInputPort;
 import br.com.hexagonal.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import br.com.hexagonal.hexagonal.application.ports.out.InsertCustomerOutputPort;
 
-/**
- * Classe ira inserir um cliente
- * No core por ser isolado das outras tecnologias, nos comunicamos atraves de portas
- */
-
 public class InsertCustomerUseCase implements InsertCustomerInputPort {
 
     private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;
 
     private final InsertCustomerOutputPort insertCustomerOutputPort;
 
-    //injetando a classe sem autowired
     public InsertCustomerUseCase(
             FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
             InsertCustomerOutputPort insertCustomerOutputPort

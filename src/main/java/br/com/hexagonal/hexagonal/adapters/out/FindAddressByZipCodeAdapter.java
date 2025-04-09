@@ -7,25 +7,21 @@ import br.com.hexagonal.hexagonal.application.ports.out.FindAddressByZipCodeOutp
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Adapter e uma implementacao da porta de saida ou entrada
- */
-
-@Component //spring gerencia a classe
+@Component
 public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutputPort {
 
     @Autowired
     private FindAddressByZipCodeClient findAddressByZipCodeClient;
 
     @Autowired
-    private AddressResponseMapper addressResponseMapper; //mapper converte objetos
+    private AddressResponseMapper addressResponseMapper;
 
     @Override
     public Address find(String zipCode) {
 
-        var addressResponse = findAddressByZipCodeClient.find(zipCode); //usando feign client para buscar um endereço via api externa
+        var addressResponse = findAddressByZipCodeClient.find(zipCode);
 
-        return addressResponseMapper.toAddress(addressResponse); //convertendo resposta para modelo interno
+        return addressResponseMapper.toAddress(addressResponse);
     }
 
 
