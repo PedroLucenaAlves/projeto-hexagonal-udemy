@@ -39,14 +39,14 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse> findById(@PathVariable final String id){
-        var customer = findCustomerByIdInputPort.find(id);
-        var customerResponse = customerMapper.toCustomerResponse(customer);
+        var customer = findCustomerByIdInputPort.find(id); //controller chama nossa porta de entrada
+        var customerResponse = customerMapper.toCustomerResponse(customer); //aqui ele converte de customer para customerResponse
         return ResponseEntity.ok().body(customerResponse);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(@PathVariable final String id, @RequestBody CustomerRequest customerRequest){
-        Customer customer = customerMapper.toCustomer(customerRequest);
+        Customer customer = customerMapper.toCustomer(customerRequest); //convertendo nossa request para um customer comum
         customer.setId(id);
         updateCustomerInputPort.update(customer, customerRequest.getZipCode());
         return ResponseEntity.noContent().build();
