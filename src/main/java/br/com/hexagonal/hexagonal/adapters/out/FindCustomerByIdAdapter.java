@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Component
+@Component           //esse adapter implementa a porta de saida (chama o mundo externo)
 public class FindCustomerByIdAdapter  implements FindCustomerByIdOutputPort {
 
     @Autowired
