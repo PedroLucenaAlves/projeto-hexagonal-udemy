@@ -4,6 +4,7 @@ import br.com.hexagonal.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import br.com.hexagonal.hexagonal.adapters.in.controller.request.CustomerRequest;
 import br.com.hexagonal.hexagonal.adapters.in.controller.response.CustomerResponse;
 import br.com.hexagonal.hexagonal.application.core.domain.Customer;
+import br.com.hexagonal.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import br.com.hexagonal.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import br.com.hexagonal.hexagonal.application.ports.in.InsertCustomerInputPort;
 import br.com.hexagonal.hexagonal.application.ports.in.UpdateCustomerInputPort;
@@ -30,6 +31,9 @@ public class CustomerController {
     @Autowired
     private UpdateCustomerInputPort updateCustomerInputPort;
 
+    @Autowired
+    private DeleteCustomerByIdInputPort deleteCustomerByIdInputPort;
+
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest){
         var customer = customerMapper.toCustomer(customerRequest);
@@ -52,5 +56,10 @@ public class CustomerController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id){
+        deleteCustomerByIdInputPort.delete(id);
+        return ResponseEntity.noContent().build(); //noContent pois nao temos body (204)
+    }
 
 }
