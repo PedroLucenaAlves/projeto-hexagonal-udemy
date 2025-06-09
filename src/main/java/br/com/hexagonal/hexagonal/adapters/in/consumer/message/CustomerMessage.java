@@ -17,7 +17,7 @@ public class CustomerMessage {
     private String name;
     private String zipCode;
     private String cpf;
-    private Boolean isValidCpf;
+    private Boolean isValidCPF;
 
     public String getZipCode() {
         return zipCode;
@@ -51,11 +51,11 @@ public class CustomerMessage {
         this.cpf = cpf;
     }
 
-    public Boolean getValidCpf() {
-        return isValidCpf;
+    public Boolean getIsValidCPF() {
+        return isValidCPF;
     }
 
-    public void setValidCpf(Boolean validCpf) {
-        isValidCpf = validCpf;
+    public void setIsValidCpf(Boolean validCPF) {
+        isValidCPF = validCPF;
     }
 }
