@@ -56,11 +56,11 @@ public class Customer {
         this.cpf = cpf;
     }
 
-    public Boolean getValidCPF() {
+    public Boolean getIsValidCPF() {
         return isValidCPF;
     }
 
-    public void setValidCPF(Boolean validCPF) {
+    public void setIsValidCPF(Boolean validCPF) {
         isValidCPF = validCPF;
     }
 }

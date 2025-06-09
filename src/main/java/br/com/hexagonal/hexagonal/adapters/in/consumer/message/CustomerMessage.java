@@ -51,11 +51,11 @@ public class CustomerMessage {
         this.cpf = cpf;
     }
 
-    public Boolean getValidCpf() {
+    public Boolean getIsValidCpf() {
         return isValidCpf;
     }
 
-    public void setValidCpf(Boolean validCpf) {
+    public void setIsValidCpf(Boolean validCpf) {
         isValidCpf = validCpf;
     }
 }
